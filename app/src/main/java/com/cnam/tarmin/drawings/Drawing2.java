@@ -9,7 +9,7 @@ import android.os.Bundle;
 
 public class Drawing2 extends AppCompatActivity {
 
-    DrawingScreen drawingScreen;
+    DrawingScreen2 drawingScreen;
     SensorManager sensorManager;
     SensorEventListener accelerometerListener;
     Sensor accelerometer;
@@ -19,7 +19,7 @@ public class Drawing2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_drawing2);
 
-        drawingScreen = new DrawingScreen(this);
+        drawingScreen = new DrawingScreen2(this);
         drawingScreen.setPosition(drawingScreen.getMeasuredWidth() / 2, drawingScreen.getMeasuredHeight() / 2);
         drawingScreen.setVelocity(0, 0);
         setContentView(drawingScreen);
