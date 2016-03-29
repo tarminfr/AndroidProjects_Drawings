@@ -28,7 +28,7 @@ public class DrawingScreen extends SurfaceView implements Runnable {
     public void run() {
         while(availableFlag) {
             //draw
-            Log.i(CLASS_TAG, "x=" + x + ", y=" + y);
+            //Log.i(CLASS_TAG, "x=" + x + ", y=" + y);
             if(!surfaceHolder.getSurface().isValid()) {
                 continue;
             }
