@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
 
-    Intent drawing1Activity;
+    Intent drawing1Activity, drawing2Activity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -14,6 +14,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         drawing1Activity = new Intent(this, Drawing1.class);
-        startActivity(drawing1Activity);
+        drawing2Activity = new Intent(this, Drawing2.class);
+
+        //startActivity(drawing1Activity);
+        startActivity(drawing2Activity);
     }
 }

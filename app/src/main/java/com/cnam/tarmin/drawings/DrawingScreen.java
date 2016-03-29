@@ -15,13 +15,13 @@ public class DrawingScreen extends SurfaceView implements Runnable {
     SurfaceHolder surfaceHolder;
     boolean availableFlag;
     Bitmap redBall;
-    float x, y;
+    float x, y, vx, vy, vmax;
 
     public DrawingScreen(Context context) {
         super(context);
         surfaceHolder = getHolder();
         redBall = BitmapFactory.decodeResource(getResources(), R.drawable.bille);
-
+        vmax = 300;
     }
 
     @Override
@@ -66,4 +66,38 @@ public class DrawingScreen extends SurfaceView implements Runnable {
         this.x = x;
         this.y = y;
     }
+
+    public void setVelocity(float vx, float vy) {
+        this.vx = vx;
+        this.vy = vy;
+    }
+
+    public void addVelocity(float vx, float vy) {
+        this.vx += vx;
+        this.vy += vy;
+
+        if(this.vx > vmax) {
+            this.vx = vmax;
+        }
+        if(this.vy > vmax) {
+            this.vy = vmax;
+        }
+    }
+
+    public void processPosition() {
+
+        if(x < 0 || x > getMeasuredWidth()) {
+            vx = -vx;
+        }
+        if(y < 0 || y > getMeasuredHeight()) {
+            vy = -vy;
+        }
+
+        //-= car pour faire allez la balle vers la gauche on penche vers la gauche
+        x -= vx;
+        y += vy;
+
+        Log.i(CLASS_TAG, "processPosition called: x=" + x + ", y=" + y + ", vx=" + vx + ", vy=" + vy);
+    }
+
 }
